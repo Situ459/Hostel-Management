@@ -1,0 +1,7 @@
+<ImageView
+    android:id="@+id/adminAvatar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/admin_avatar"
+    android:contentDescription="Admin Avatar"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

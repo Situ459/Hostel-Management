@@ -1,0 +1,35 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_admin_avatar"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Admin profile picture"/>
+
+    <TextView
+        android:id="@+id/tvAdminName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvAdminId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin ID"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Add more profile fields here as needed -->
+
+</LinearLayout>

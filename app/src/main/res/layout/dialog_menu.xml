@@ -1,0 +1,102 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- Room Details -->
+    <LinearLayout
+        android:id="@+id/itemRoomDetails"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:src="@drawable/ic_home"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Room Details"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- Fees -->
+    <LinearLayout
+        android:id="@+id/itemFees"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:src="@drawable/ic_fees"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fees"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- Mess Menu -->
+    <LinearLayout
+        android:id="@+id/itemMessMenu"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:src="@drawable/ic_mess"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mess Menu"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- Complain -->
+    <LinearLayout
+        android:id="@+id/itemComplain"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:src="@drawable/ic_complain"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complain"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+</LinearLayout>

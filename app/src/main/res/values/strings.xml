@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Hostel_Management</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="overflow_menu">More options menu</string>
+    <string name="welcome_admin">Welcome, Admin</string>
+    <string name="logout">Logout</string>
+    <string name="notice_board">Notice Board</string>
+    <string name="manage_notices">Manage and post latest notices</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="manage_events">Manage upcoming hostel events</string>
+    <string name="complaints">Complaints</string>
+    <string name="view_manage_complaints">View and manage student complaints</string>
+
+
+</resources>

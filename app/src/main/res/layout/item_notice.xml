@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/tvNoticeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notice Title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#1976D2" />
+
+    <TextView
+        android:id="@+id/tvNoticeContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notice content here"
+        android:textSize="14sp"
+        android:textColor="#333"
+        android:layout_marginTop="6dp" />
+
+    <TextView
+        android:id="@+id/tvNoticeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date/time"
+        android:textSize="12sp"
+        android:textColor="#888"
+        android:layout_marginTop="8dp" />
+
+    <!-- Only visible for admin, hidden for student -->
+    <ImageButton
+        android:id="@+id/btnDeleteNotice"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@android:drawable/ic_delete"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Delete"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        app:tint="#D32F2F" />
+</LinearLayout>

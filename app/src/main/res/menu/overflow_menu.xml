@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_room_details"
+        android:icon="@drawable/ic_home"
+        android:title="Room Details" />
+    <item
+        android:id="@+id/menu_fees"
+        android:icon="@drawable/ic_fees"
+        android:title="Fees" />
+    <item
+        android:id="@+id/menu_mess_menu"
+        android:icon="@drawable/ic_mess"
+        android:title="Mess Menu" />
+    <item
+        android:id="@+id/menu_complaint"
+        android:icon="@drawable/ic_complain"
+        android:title="Submit Complaint" />
+</menu>
