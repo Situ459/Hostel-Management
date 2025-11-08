@@ -15,24 +15,22 @@ class AdminDashboardActivity : AppCompatActivity() {
     private lateinit var tvWelcome: TextView
     private lateinit var btnLogout: Button
     private lateinit var cardNoticeBoard: CardView
-    private lateinit var cardUpcomingEvents: CardView
+    private lateinit var cardHostelCalendar: CardView
     private lateinit var cardComplaints: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_dashboard)
 
-        // Setup toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         tvWelcome = findViewById(R.id.tvWelcome)
         btnLogout = findViewById(R.id.btnLogout)
         cardNoticeBoard = findViewById(R.id.cardNoticeBoard)
-        cardUpcomingEvents = findViewById(R.id.cardUpcomingEvents)
+        cardHostelCalendar = findViewById(R.id.cardHostelCalendar)
         cardComplaints = findViewById(R.id.cardComplaints)
 
-        // Set welcome message with admin's name from login/session
         val adminName = "Admin Name" // Replace with actual admin name logic
         tvWelcome.text = "Welcome, $adminName"
 
@@ -40,8 +38,8 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, AdminNoticeBoardActivity::class.java))
         }
 
-        cardUpcomingEvents.setOnClickListener {
-            startActivity(Intent(this, AdminUpcomingEventsActivity::class.java))
+        cardHostelCalendar.setOnClickListener {
+            startActivity(Intent(this, CalendarActivity::class.java))
         }
 
         cardComplaints.setOnClickListener {
@@ -55,13 +53,11 @@ class AdminDashboardActivity : AppCompatActivity() {
         }
     }
 
-    // Inflate the admin toolbar menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.admin_toolbar_menu, menu)
         return true
     }
 
-    // Handle menu item selection
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_profile -> {

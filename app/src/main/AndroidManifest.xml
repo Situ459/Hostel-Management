@@ -75,6 +75,17 @@
         <!-- Student Notice Board Activity (Added) -->
         <activity android:name=".NoticeBoardActivity" android:exported="false"/>
 
+        <!-- Calendar Activity (NEW) -->
+        <activity android:name=".CalendarActivity" android:exported="false"/>
+
+        <activity android:name=".FeesActivity" android:exported="false"/>
+
+        <activity android:name=".ProfileActivity" android:exported="false" />
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".HelpActivity" android:exported="false" />
+        <activity android:name=".AboutActivity" android:exported="false" />
+
+
     </application>
 
 </manifest>

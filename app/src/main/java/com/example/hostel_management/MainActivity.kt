@@ -1,6 +1,7 @@
 package com.example.hostel_management
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.addCallback
@@ -91,23 +92,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         btnViewProfile.setOnClickListener {
-            Toast.makeText(this, "Profile feature coming soon!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 
     private fun setupCardClicks() {
         findViewById<CardView>(R.id.cardNoticeBoard).setOnClickListener {
-            // Launch student NoticeBoardActivity
             val intent = Intent(this, NoticeBoardActivity::class.java)
             startActivity(intent)
         }
 
-        findViewById<CardView>(R.id.cardUpcomingEvents).setOnClickListener {
-            Toast.makeText(this, "Upcoming Events feature coming soon!", Toast.LENGTH_SHORT).show()
+        findViewById<CardView>(R.id.cardCalendar).setOnClickListener {
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
         }
 
         findViewById<CardView>(R.id.cardNewsUpdates).setOnClickListener {
-            Toast.makeText(this, "News & Updates feature coming soon!", Toast.LENGTH_SHORT).show()
+            val url = "https://news.google.com/"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         }
 
         findViewById<CardView>(R.id.cardSubmitComplaint).setOnClickListener {
@@ -115,7 +120,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(intent)
         }
 
-        // UPDATED: My Complaints card click opens MyComplaintsActivity
         findViewById<CardView>(R.id.cardMyComplaints).setOnClickListener {
             val intent = Intent(this, MyComplaintsActivity::class.java)
             startActivity(intent)
@@ -124,7 +128,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun setupFloatingOverflowMenu() {
         floatingOverflowMenu.setOnClickListener {
-            // inflating custom dialog menu layout
             val dialogView = layoutInflater.inflate(R.layout.dialog_menu, null)
             val dialog = AlertDialog.Builder(this)
                 .setView(dialogView)
@@ -136,7 +139,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 dialog.dismiss()
             }
             dialogView.findViewById<LinearLayout>(R.id.itemFees).setOnClickListener {
-                Toast.makeText(this, "Fees coming soon!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, FeesActivity::class.java)
+                startActivity(intent)
                 dialog.dismiss()
             }
             dialogView.findViewById<LinearLayout>(R.id.itemMessMenu).setOnClickListener {
@@ -194,13 +198,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: android.view.MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_settings -> {
-                Toast.makeText(this, "Settings coming soon!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_help -> {
-                Toast.makeText(this, "Help & Support coming soon!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HelpActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_about -> {
-                Toast.makeText(this, "About coming soon!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_logout -> {
                 firebaseHelper.logout()

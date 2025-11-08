@@ -10,10 +10,9 @@ class FirebaseHelper {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
     companion object {
-        const val MAX_OCCUPANCY = 3  // Max students per room
+        const val MAX_OCCUPANCY = 3
     }
 
-    // Get list of available rooms with occupancy count
     suspend fun getAvailableRooms(): List<RoomInfo> {
         return try {
             val roomsSnapshot = database.child("rooms").get().await()
@@ -22,28 +21,25 @@ class FirebaseHelper {
                 val roomKey = "room_$roomNum"
                 val occupancy = roomsSnapshot.child(roomKey).child("occupancy")
                     .getValue(Int::class.java) ?: 0
-
                 if (occupancy < MAX_OCCUPANCY) {
                     availableRooms.add(RoomInfo("Room $roomNum", occupancy))
                 }
             }
-            availableRooms.sortedBy { it.occupancy } // Show emptiest rooms first
+            availableRooms.sortedBy { it.occupancy }
         } catch (e: Exception) {
             emptyList()
         }
     }
 
-    // Sign Up User with Room Selection and Role
     suspend fun signUpUser(
         email: String,
         password: String,
         regNumber: String,
         name: String,
-        roomNumber: String,  // User-selected room
-        role: String         // "student" or "admin"
+        roomNumber: String,
+        role: String
     ): Result<String> {
         return try {
-            // Check if room is still available
             if (roomNumber.isNotEmpty() && roomNumber != "Not Assigned") {
                 val isAvailable = checkRoomAvailability(roomNumber)
                 if (!isAvailable) {
@@ -90,7 +86,6 @@ class FirebaseHelper {
         }
     }
 
-    // Login User
     suspend fun loginUser(email: String, password: String): Result<String> {
         return try {
             val authResult = auth.signInWithEmailAndPassword(email, password).await()
@@ -101,7 +96,6 @@ class FirebaseHelper {
         }
     }
 
-    // Get User Details INCLUDING role
     suspend fun getUserDetails(userId: String): UserDetails? {
         return try {
             val snapshot = database.child("users").child(userId).get().await()
@@ -136,7 +130,6 @@ class FirebaseHelper {
         }
     }
 
-    // Submit Complaint - full implementation with categories
     suspend fun submitComplaint(
         regNumber: String,
         name: String,
@@ -187,9 +180,6 @@ class FirebaseHelper {
         }
     }
 
-    // --- NOTICE BOARD METHODS START HERE ---
-
-    // Get all notices, newest first
     suspend fun getAllNotices(): List<Notice> {
         return try {
             val snapshot = database.child("notices").get().await()
@@ -204,7 +194,6 @@ class FirebaseHelper {
         }
     }
 
-    // Add a new notice
     suspend fun addNotice(title: String, content: String, createdBy: String): Result<String> {
         return try {
             val noticeId = database.child("notices").push().key ?: return Result.failure(Exception("No key"))
@@ -222,7 +211,6 @@ class FirebaseHelper {
         }
     }
 
-    // Delete a notice by id
     suspend fun deleteNotice(noticeId: String): Boolean {
         return try {
             database.child("notices").child(noticeId).removeValue().await()
@@ -232,7 +220,38 @@ class FirebaseHelper {
         }
     }
 
-    // Get Current User ID
+    suspend fun getFees(session: String): Map<String, Int> {
+        return try {
+            val snapshot = database.child("fees").child(session).get().await()
+            val result = mutableMapOf<String, Int>()
+            for (child in snapshot.children) {
+                val item = child.key ?: continue
+                val amount = child.getValue(Int::class.java) ?: 0
+                result[item] = amount
+            }
+            result
+        } catch (e: Exception) {
+            emptyMap()
+        }
+    }
+
+    suspend fun getUserFeeStatus(userId: String, session: String): Boolean {
+        return try {
+            val snapshot = database.child("userFeesStatus").child(userId).child(session).get().await()
+            snapshot.value as? Boolean ?: false
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    suspend fun markUserFeePaid(userId: String, session: String) {
+        try {
+            database.child("userFeesStatus").child(userId).child(session).setValue(true).await()
+        } catch (e: Exception) {
+            // handle if needed
+        }
+    }
+
     fun getCurrentUserId(): String? = auth.currentUser?.uid
     fun logout() = auth.signOut()
     fun isUserLoggedIn(): Boolean = auth.currentUser != null
@@ -261,7 +280,6 @@ data class Complaint(
     var status: String = "Pending"
 )
 
-// Notice board model
 data class Notice(
     val noticeId: String = "",
     val title: String = "",

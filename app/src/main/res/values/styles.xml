@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="CalendarCustom" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#512DA8</item>
+        <item name="colorPrimaryDark">#311B92</item>
+        <item name="colorAccent">#FFD600</item>
+    </style>
+
 
 </resources>

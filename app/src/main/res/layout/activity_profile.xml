@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F3F6FD">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:gravity="center_horizontal">
+
+        <!-- Gradient Background Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="@drawable/profile_header_gradient"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="32dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="Profile Picture"
+                android:background="@drawable/circle_bg"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:id="@+id/btnAddImage"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Add/Change Image"
+                android:textColor="#512DA8"
+                android:background="@drawable/pill_button_violet"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <!-- CardView-style section for profile details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg_white_rounded"
+            android:elevation="8dp"
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#2561A6"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#444"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:id="@+id/tvRegNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reg No:"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#444"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:id="@+id/tvRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room:"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#444"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:id="@+id/tvRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Role:"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#444"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
